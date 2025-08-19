@@ -1,0 +1,3 @@
+[submodule "webapp/backend/Text2CAD"]
+	path = webapp/backend/Text2CAD
+	url = https://github.com/SadilKhan/Text2CAD
