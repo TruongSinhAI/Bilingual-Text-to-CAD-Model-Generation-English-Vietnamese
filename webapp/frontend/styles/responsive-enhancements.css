@@ -1,0 +1,211 @@
+/* Responsive Enhancements for CAD Viewer */
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+/* Laptop optimized layouts */
+@media (min-width: 1024px) and (max-width: 1536px) {
+  /* Adjust panel widths for laptop screens */
+  .chat-panel {
+    width: 20rem; /* 320px */
+    min-width: 18rem; /* 288px */
+  }
+  
+  .properties-panel {
+    width: 18rem; /* 288px */
+    min-width: 16rem; /* 256px */
+  }
+  
+  /* Compact toolbar */
+  .toolbar-compact {
+    padding: 0.5rem 1rem;
+  }
+  
+  .toolbar-compact .button-group {
+    gap: 0.25rem;
+  }
+}
+
+/* Medium laptop screens */
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .chat-panel {
+    width: 22rem; /* 352px */
+  }
+  
+  .properties-panel {
+    width: 20rem; /* 320px */
+  }
+}
+
+/* Large laptop/desktop screens */
+@media (min-width: 1536px) {
+  .chat-panel {
+    width: 24rem; /* 384px */
+  }
+  
+  .properties-panel {
+    width: 22rem; /* 352px */
+  }
+}
+
+/* Tablet portrait mode */
+@media (max-width: 1023px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .panel-responsive {
+    width: 100% !important;
+    max-height: 40vh;
+  }
+  
+  .viewer-responsive {
+    height: 60vh;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .header-mobile {
+    padding: 0.75rem 1rem;
+  }
+  
+  .toolbar-mobile {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .status-bar-mobile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Enhanced glass morphism effect */
+.glass-enhanced {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Chat message animations */
+.message-enter {
+  animation: messageSlideIn 0.3s ease-out forwards;
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Loading spinner enhancement */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hover effects for interactive elements */
+.interactive-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Focus states for accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(59, 130, 246, 0.5);
+  outline-offset: 2px;
+}
+
+/* Gradient text enhancement */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+  .glass-enhanced {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-enhanced {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

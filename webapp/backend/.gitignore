@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyc
+
+# Environment
+.env*
+.venv/
+venv/
+env/
+
+# Logs
+*.log
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build
+build/
+dist/
+output/
+
+# Cache
+.cache/
+chroma_cache/
+
+# Ignore requirements lock files
+poetry.lock
+Pipfile.lock
+
+# Ignore local config
+config/
+
+# Ignore anything else unnecessary
+Text2Cad/

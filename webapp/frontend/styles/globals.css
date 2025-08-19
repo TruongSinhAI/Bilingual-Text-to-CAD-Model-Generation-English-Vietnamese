@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --primary: 212 96% 54%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 212 96% 54%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 212 96% 54%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 212 96% 54%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 212 96% 54%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212 96% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply antialiased;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50 transition-colors;
+  }
+}
+
+@layer components {
+  /* Card Styles */
+  .card-hover {
+    @apply transition-all hover:shadow-lg motion-safe:hover:scale-[1.02] motion-safe:active:scale-[0.98];
+  }
+
+  /* Button Styles */
+  .btn-hover {
+    @apply transition-all hover:shadow-md motion-safe:hover:scale-105 motion-safe:active:scale-95;
+  }
+
+  /* Loading States */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-primary/30 border-t-primary h-8 w-8;
+  }
+
+  .loading-pulse {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* 3D Viewer */
+  .viewer-canvas {
+    @apply rounded-lg bg-[#f8f9fa] shadow-inner transition-all duration-300;
+  }
+
+  .measurement-point {
+    @apply w-2 h-2 rounded-full bg-primary ring-2 ring-primary-foreground ring-offset-2 transition-transform hover:scale-150;
+  }
+
+  /* Material Preview */
+  .material-preview {
+    @apply w-8 h-8 rounded border border-gray-200 cursor-pointer hover:ring-2 ring-offset-2 ring-primary transition-all shadow-sm hover:scale-110;
+  }
+
+  /* Panel Headers */
+  .panel-header {
+    @apply p-4 border-b border-gray-200;
+  }
+
+  .panel-title {
+    @apply font-medium text-gray-900;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    @apply motion-safe:animate-in fade-in zoom-in duration-300;
+  }
+  
+  .slide-in-from-top {
+    @apply motion-safe:animate-in slide-in-from-top-4 duration-300;
+  }
+  
+  .slide-in-from-bottom {
+    @apply motion-safe:animate-in slide-in-from-bottom-4 duration-300;
+  }
+
+  .glass {
+    @apply bg-background/80 backdrop-blur-sm border shadow-sm;
+  }
+
+  .glass-hover {
+    @apply hover:bg-background/90 transition-colors;
+  }
+}
